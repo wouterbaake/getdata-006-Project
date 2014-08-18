@@ -21,7 +21,7 @@ labels<-make.names(c(read.table("UCI HAR Dataset/features.txt",stringsAsFactors 
 setnames(data,labels)
 
 #Select only the data with mean() or std() in their column name
-selected_cols<-c(grep("*mean\\(\\)*|*std\\(\\)*",labels))
+selected_cols<-c(grep("*mean\\.|*std\\.",labels))
 selected_data<-subset(data,select = selected_cols)
 
 
