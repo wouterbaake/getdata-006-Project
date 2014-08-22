@@ -28,11 +28,6 @@ The script "run_analysis.R" does the following things:
 The tidy_data dataset consists of the following variables:
 
 - activity: A string value describing the type of activity for which the gyroscope data was recorded.
-Possible values:
-```{r, echo=FALSE}
-activity_labels[,2]
-```
-
 - subject_id: A numeric value (1 to 30) that identifies the subject that performed the activity
 - variable: A string value describing the gyroscope variable that was recorded activity and subject
 - value: The mean of the gyroscope variable recorded for this activity and subject

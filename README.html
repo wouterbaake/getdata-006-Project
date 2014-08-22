@@ -60,9 +60,9 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <p>Contained in this repo are</p>
 <ul>
-<li>The script “run_analysis.R” -&gt; This downloads the required raw data and collects all the separate datasets into a single data table. It also output’s a tidy data file</li>
+<li>The script “run_analysis.R” -&gt; This downloads the required raw data and collects all the separate datasets into a single data table. It also calculates the requires means and output’s a tidy data file</li>
 <li>The CodeBook.md file which describes the action taken in the script</li>
-<li>The tidy data file tidydata.csv</li>
+<li>The tidy data file tidydata.txt containing the means of every data item with “mean()” or “std()” in its name in the original datasets, grouped by activity and subject_id</li>
 </ul>
 
 
@@ -82,7 +82,7 @@ $(document).ready(function () {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
