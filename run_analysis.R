@@ -1,3 +1,4 @@
+library(reshape2)
 library(data.table)
 
 data_URL<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -42,13 +43,11 @@ setnames(desc,c("subject_id","act_no"))
 desc<-merge(desc,activity_labels)[,c(2,3)]
 
 #Combine description with dataset
-data_clean<-as.data.table(cbind(desc,selected_data))
+data_clean<-cbind(desc,selected_data)
 
-#Calculate the means of every column grouped by activity and subject
-tidy_data<-data_clean[,lapply(.SD,mean),by="activity,subject_id"]
-
-#Order dataset by activity and subject_id
-tidy_data<-tidy_data[order(activity,subject_id)]
+melted<-melt(data_clean,id=c(1,2))
+cast<-dcast(melted, activity + subject_id ~ variable ,fun.aggregate = mean)
+tidy_data<-melt(cast,id=c(1,2))
 
 #Write tidy dataset to a csv file
 write.table(tidy_data,"tidy_data.txt",row.names=FALSE)
