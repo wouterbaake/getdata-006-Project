@@ -49,5 +49,6 @@ melted<-melt(data_clean,id=c(1,2))
 cast<-dcast(melted, activity + subject_id ~ variable ,fun.aggregate = mean)
 tidy_data<-melt(cast,id=c(1,2))
 
+
 #Write tidy dataset to a csv file
 write.table(tidy_data,"tidy_data.txt",row.names=FALSE)
